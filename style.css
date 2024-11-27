@@ -1,0 +1,364 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); /* Opacidade ajustada */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  opacity: 1;
+  transition: top 0.3s ease-in-out; /* Transição suave */
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* Menu Toggle (Mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.menu-toggle .bar {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Animação do Menu Toggle */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu Responsivo */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    gap: 15px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 1.3rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('../sdr/image/Trator2.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  padding: 12px 25px;
+  background-color: #ffd700;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e6a700;
+}
+
+/* Seção Sobre Nós */
+#sobre {
+  padding: 80px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+#sobre h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #007B5E;
+}
+
+#sobre p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Seção Produtos */
+#produtos {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.produto-item {
+  margin-bottom: 40px;
+}
+
+.produto-imagem img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.produto-descricao {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.next-img {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007B5E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.next-img:hover {
+  background-color: #00573d;
+}
+
+/* Carrossel de Produtos */
+.carrossel-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carrossel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carrossel-item {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.carrossel-imagem {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carrossel-imagem:hover {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-galeria {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-imagem {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Seção Contato */
+#contato {
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form input, form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 12px 25px;
+  background-color: #007B5E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+form button:hover {
+  background-color: #00573d;
+}
+
+/* Botão Voltar ao Topo */
+#btnVoltarTopo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px;
+  background-color: #007B5E;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
