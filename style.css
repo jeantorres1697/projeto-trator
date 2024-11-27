@@ -315,7 +315,7 @@ body {
 }
 
 /* Seção Contato */
-#contato {
+#contato h2 {
   padding: 80px 20px;
   background-color: #fff;
   text-align: center;
