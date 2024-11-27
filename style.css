@@ -316,8 +316,9 @@ body {
 
 /* Seção Contato */
 #contato {
-  padding: 60px 20px;
+  padding: 80px 20px;
   background-color: #fff;
+  text-align: center;
 }
 
 form {
